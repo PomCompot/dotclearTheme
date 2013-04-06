@@ -84,7 +84,9 @@ hr { }
 
 #wrapper { }
 #main { }
-#content { }
+#content {
+	overflow: auto;
+}
 
 #content-info { }
 #content-info h2 { }
@@ -100,7 +102,10 @@ hr { }
 	6. BILLETS
 ------------------------------------------------------------- */
 
-.post { }
+.post {
+  float: left;
+  width: 230px;
+}
 .post.first { }
 .post.odd { }
 
@@ -312,5 +317,4 @@ feed.png a piocher dans le theme par defaut par ex.) */
 --------------------------------------------------- */
 .post, .post-content, .footnotes, .attachments, 
 .post-info-co, #comments, #footer {
-    clear:both;
     }

@@ -84,7 +84,9 @@ hr { }
 
 #wrapper { }
 #main { }
-#content { }
+#content {
+	overflow: auto;
+}
 
 #content-info { }
 #content-info h2 { }
@@ -101,7 +103,8 @@ hr { }
 ------------------------------------------------------------- */
 
 .post {
-  
+  float: left;
+  width: 230px;
 }
 .post.first { }
 .post.odd { }
