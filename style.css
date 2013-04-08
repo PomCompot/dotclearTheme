@@ -94,7 +94,9 @@ hr { }
 
 .content-inner { }
 
-.pagination { }
+.pagination {
+  clear: left;
+}
 #navlinks { }
 
 
