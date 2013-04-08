@@ -317,5 +317,4 @@ feed.png a piocher dans le theme par defaut par ex.) */
 --------------------------------------------------- */
 .post, .post-content, .footnotes, .attachments, 
 .post-info-co, #comments, #footer {
-    clear:both;
     }
