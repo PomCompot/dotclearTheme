@@ -20,7 +20,9 @@ Licence : domaine public
 	2. BALISES HTML PAR DEFAUT
 ------------------------------------------------------------- */
 
-body { }
+body {
+  font-family: sans;
+}
  
 h1 { }
 h2 { }
@@ -47,7 +49,10 @@ fieldset { }
 input { }
 label { }
 
-a { }
+a {
+  text-decoration: none;
+  color: #000;
+}
 a:link { }
 a:visited { }
 a:hover { }
@@ -104,7 +109,9 @@ hr { }
 	6. BILLETS
 ------------------------------------------------------------- */
 
-.post {
+.post { }
+article.post-thumbnail {
+  position: relative;
   float: left;
   width: 300px;
   height: 300px;
@@ -112,9 +119,36 @@ hr { }
   border-radius: 150px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   margin: 10px;
+  background-color: #ddd;
+}
+article.post-thumbnail header {
+  z-index: 2;
+  position: absolute;
+  top: 300px;
+  text-align: center;
+  background-color: rgba(40, 40, 40, 0.5);
+  height: 100%;
+}
+article.post-thumbnail:hover header {
+  position: absolute;
+  top: 95px;
+}
+article.post-thumbnail header h2 {
+  font-variant: small-caps;
 }
 .post.first { }
 .post.odd { }
+
+.post-first-image {
+  z-index: 1;
+  position: relative;
+	top: 10px;
+  display: block;
+  width: 280px;
+  height: 280px;
+  border-radius: 140px;
+  margin: auto;
+}
 
 .day-date { }
 .post-title { }
