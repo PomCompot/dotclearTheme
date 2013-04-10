@@ -15,21 +15,32 @@ Licence : domaine public
 ------------------------------------------------------------------ */
 @import url(layout.css);
 
+@import url(http://fonts.googleapis.com/css?family=Berkshire+Swash&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Economica:400,400italic,700,700italic&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Scada:400,700,400italic&subset=latin,latin-ext);
 
 /* ------------------------------------------------------------
 	2. BALISES HTML PAR DEFAUT
 ------------------------------------------------------------- */
 
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 body {
-  font-family: sans;
+  font-family: 'Scada', sans;
 }
  
-h1 { }
-h2 { }
-h3 { }
-h4 { }
-h5 { }
-h6 { }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Economica', serif;
+  font-weight: bold;
+}
+h1 {
+  font-family: 'Berkshire Swash', cursive;
+}
+h2 {
+  font-variant: small-caps;
+}
 
 p { }
 img { }
@@ -90,7 +101,9 @@ hr { }
 #wrapper { }
 #main { }
 #content {
-	overflow: auto;
+  overflow: auto;
+  width: 960px;
+  margin: auto;
 }
 
 #content-info { }
@@ -119,22 +132,43 @@ article.post-thumbnail {
   border-radius: 150px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   margin: 10px;
+}
+article.post-thumbnail a.post-link {
+	position: relative;
+  display: block;
+  width: 300px;
+  height: 300px;
+  border-radius: 150px;
   background-color: #ddd;
 }
-article.post-thumbnail header {
+article.post-thumbnail a header {
   z-index: 2;
   position: absolute;
-  top: 300px;
-  text-align: center;
-  background-color: rgba(40, 40, 40, 0.5);
-  height: 100%;
-}
-article.post-thumbnail:hover header {
-  position: absolute;
   top: 95px;
+  text-align: center;
+  background-color: rgba(250, 250, 250, 0.5);
+  height: 205px;
+  width: 100%;
 }
-article.post-thumbnail header h2 {
-  font-variant: small-caps;
+article.post-thumbnail a header h2.post-title {
+  margin: 10px 0 0;
+  padding: 0 18px;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+article.post-thumbnail a header .post-content {
+  padding: 0 50px 50px;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+  height: 85px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+article.post-thumbnail a header .post-content p {
+  margin: 0;
 }
 .post.first { }
 .post.odd { }
@@ -152,7 +186,9 @@ article.post-thumbnail header h2 {
 
 .day-date { }
 .post-title { }
-.post-info { }
+.post-info {
+  margin: 0 auto 10px;
+}
 .post-tags { }
 .post-excerpt { }
 .post-content { }

@@ -59,23 +59,20 @@
   <section id="content">
 		<tpl:Entries>
 		  <article id="p{{tpl:EntryID}}" class="post post-thumbnail {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" xml:lang="{{tpl:EntryLang}}">
-		  
-				<a href="{{tpl:EntryURL}}">
+				<a class="post-link" href="{{tpl:EntryURL}}">
 					<header class="post-header">
 						<h2 class="post-title">{{tpl:EntryTitle encode_html="1"}}</h2>
+						<p class="post-info">{{tpl:EntryDate}}</p>
 
-						<p class="post-info">{{tpl:lang By}} {{tpl:EntryAuthorLink}}
-						{{tpl:lang on}} {{tpl:EntryDate}}, {{tpl:EntryTime}}
-						<tpl:EntryIf has_category="1">
-						- <a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a>
+						<!-- # Entry with an excerpt -->
+						<tpl:EntryIf extended="1">
+							<div class="post-content">{{tpl:EntryExcerpt}}</div>
 						</tpl:EntryIf>
-						</p>
-				
-						<tpl:EntryTags>
-						<tpl:TagsHeader><ul class="post-tags"></tpl:TagsHeader>
-						<li><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
-						<tpl:TagsFooter></ul></tpl:TagsFooter>
-						</tpl:EntryTags>
+			
+						<!-- # Entry without excerpt -->
+						<tpl:EntryIf extended="0">
+							<div class="post-content">{{tpl:EntryContent}}</div>
+						</tpl:EntryIf>
 					</header>
 
 					{{tpl:EntryFirstImage size="m" class="post-first-image"}}
@@ -83,25 +80,12 @@
 					<!-- # --BEHAVIOR-- publicEntryBeforeContent -->
 					{{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
 				
-		
-					<!-- # Entry with an excerpt -->
-					<tpl:EntryIf extended="1">
-						<div class="post-content">{{tpl:EntryExcerpt}}</div>
-						<p class="read-it"><a href="{{tpl:EntryURL}}"
-						title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue
-						reading}}</a>...</p>
-					</tpl:EntryIf>
-				
-					<!-- # Entry without excerpt -->
-					<tpl:EntryIf extended="0">
-						<div class="post-content">{{tpl:EntryContent}}</div>
-					</tpl:EntryIf>
 				
 					<!-- # --BEHAVIOR-- publicEntryAfterContent -->
 					{{tpl:SysBehavior behavior="publicEntryAfterContent"}}
 				
 					<!-- # Number of comments, trackbacks and attachments -->
-					<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+					<!--<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
 						<p class="post-info-co">
 					</tpl:EntryIf>
 					<tpl:EntryIf show_comments="1">
@@ -113,7 +97,7 @@
 						<a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
 					<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
 						</p>
-					</tpl:EntryIf>
+					</tpl:EntryIf>-->
 				</a>
 			</article>
 			
