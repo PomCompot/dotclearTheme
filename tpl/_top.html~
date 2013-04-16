@@ -9,7 +9,7 @@
 <a href="#blognav">{{tpl:lang To menu}}</a> |
 <a href="#search">{{tpl:lang To search}}</a></p>-->
 
-<div id="menu">
+<div>
 	<tpl:Widget id="navigation">
 		<setting name="title" />
 	</tpl:Widget>

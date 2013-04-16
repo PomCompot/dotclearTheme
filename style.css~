@@ -13,21 +13,39 @@ Licence : domaine public
 	le meme repertoire et appelee grace a l'instruction ci-dessous
 	(exemple pour un fichier de structure nommé layout.css)
 ------------------------------------------------------------------ */
-@import url(layout.css);
+/*@import url(layout.css);*/
 
+@import url(http://fonts.googleapis.com/css?family=Berkshire+Swash&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Economica:400,400italic,700,700italic&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Scada:400,700,400italic&subset=latin,latin-ext);
 
 /* ------------------------------------------------------------
 	2. BALISES HTML PAR DEFAUT
 ------------------------------------------------------------- */
 
-body { }
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html, body {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Scada', sans;
+}
  
-h1 { }
-h2 { }
-h3 { }
-h4 { }
-h5 { }
-h6 { }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Economica', serif;
+  font-weight: bold;
+}
+h1 {
+  margin-top: 0;
+  font-family: 'Berkshire Swash', cursive;
+}
+h2 {
+  font-variant: small-caps;
+}
 
 p { }
 img { }
@@ -47,7 +65,10 @@ fieldset { }
 input { }
 label { }
 
-a { }
+a {
+  text-decoration: none;
+  color: #000;
+}
 a:link { }
 a:visited { }
 a:hover { }
@@ -64,7 +85,13 @@ hr { }
 	3. PAGE
 ------------------------------------------------------------- */
  
-#page { }
+#page {
+  padding: 18px;
+  min-width: 320px;
+  max-width: 1024px;
+  margin: 0 auto;
+  box-shadow: 0 0 8px #444;
+}
 
  
 /* ------------------------------------------------------------
@@ -72,8 +99,18 @@ hr { }
 ------------------------------------------------------------- */
 
 #top { }
-#top h1 { }
-#top h1 a { }
+#top h1 {
+  text-align: center;
+}
+#top h1 a::after {
+  content: '';
+  display: inline-block;
+  height: 1em;
+  width: 51px;
+	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAALCAYAAADSiLXqAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHMSURBVEiJndS/ThtBEMfx756DQZECFFC6Q9hF/jSpkFJgRIEpKZOAogjlUXCFK0MTETlylLwBHRSRXOEiDY0FyiukTpwfxc0p6/Pu+ZyRttmZz87u3e05SeTDObcFrEi6nEpGwjm3DThJV3OYJiBJ13OYPeCXpMFULnKYK2AFeKlQQbjJd6AiaWuOjQ2AsaRXJesdcEN6mOZUgaSJAewAsnGQz4cGsOuZ/ZJm3zO7Jc2BZ3am8lZUBTaBPTt5Bm6taQNYzC1cBepmhp75AbQslzeLNt+yuswMbZ06UA2Yhu3j1jM3ZjYzA3ACjL2i2PgLnBk6LWnGQMdMZw5zaubM+pYxJwAJcF4CfAMWrEkFuChheqT3KDO9EubCMwvWd5Y5BxL/dbYLij8CSe71O3vaMdPFfjA50y0wnYBJrH/MtCfujKHlArARuZDrBaYWMbUCsx4xGwVmOatL+BfPicezyPyLAhPL/Y+J9Qdv36HD/ASOgbfAyOaezljoHnhn4y7fJGLuPHM/w2T9R7avY9vnhHnkgVXgA/BJ0m8A59xX4DXpLzMUT4D3wGdJf8z0gTekn0YoHtsB+jlzSPoJhmIJOAK+SBqb6dk6a1nRAzpt7nn4dIC0AAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  background-position: top right;
+}
 #prelude { }
 #prelude a { }
 
@@ -85,7 +122,11 @@ hr { }
 #wrapper { }
 #main { }
 #content {
-	overflow: auto;
+  overflow: auto;
+  text-align: center;
+  min-width: 320px;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 #content-info { }
@@ -94,24 +135,111 @@ hr { }
 
 .content-inner { }
 
-.pagination { }
+.pagination {
+  clear: left;
+}
 #navlinks { }
-
 
 /* ------------------------------------------------------------
 	6. BILLETS
 ------------------------------------------------------------- */
 
-.post {
-  float: left;
-  width: 230px;
+.post { }
+article.post-thumbnail {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 150px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 10px;
+  background-color: #ddd;
+}
+article.post-thumbnail .post-link {
+	position: relative;
+  display: block;
+  width: 280px;
+  height: 280px;
+  margin: 10px;
+  border-radius: 140px;
+  padding-top: 65px;
+  text-align: center;
+	background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  outline: 0;
+}
+article.post-thumbnail .post-header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background-color: rgba(250, 250, 250, 0.5);
+  width: 300px;
+  left: -8px;
+}
+article.post-thumbnail .post-title {
+  margin: 0;
+  padding: 5px 18px 0;
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+article.post-thumbnail .post-content {
+  padding: 0 50px 50px;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+  height: 85px;
+  overflow: hidden;
+  margin: 10px 0 0;
+}
+article.post-thumbnail .post-content p {
+  margin: 0;
 }
 .post.first { }
 .post.odd { }
 
+.post-first-image {
+  position: absolute;
+  z-index: 1;
+	top: 10px;
+  left: 10px;
+  display: block;
+  width: 280px;
+  height: 280px;
+  border-radius: 140px;
+  margin: auto;
+}
+.post-category {
+  position: relative;
+  z-index: 3;
+  text-shadow: 0 0 3px #fff;
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-style: italic;
+  margin: 0;
+}
+.post-comment-count {
+  color: #fff;
+  background-color: #000;
+  border-radius: 12px 12px 12px 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  height: 24px;
+  min-width: 24px;
+  display: inline-block;
+  margin: 10px 0 30px;
+  padding: 0 8px;
+}
+
 .day-date { }
 .post-title { }
-.post-info { }
+.post-info {
+  margin: 0;
+}
 .post-tags { }
 .post-excerpt { }
 .post-content { }
@@ -195,8 +323,39 @@ hr { }
 #sidebar ul { }
 #sidebar li { }
 
+#menu {
+  overflow: auto;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  margin-bottom: 25px;
+}
+#menu ul {
+  list-style: none;
+  margin: 0;
+}
+#menu p {
+  margin: 0;
+}
+#menu::after {
+  clear: both;
+}
 /* boites du menu des widgets livres avec Dotclear */
-#search { }
+#topnav {
+  float: left;
+}
+
+#search {
+  float: right;
+}
+#search h2 {
+  display: none;
+}
+#search fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
 #search form { }
 #search input[type=text] { } /* ou #search #q */
 #search input[type=submit] { } /* ou #search .submit */
@@ -239,7 +398,7 @@ feed.png a piocher dans le theme par defaut par ex.) */
 
 .feed { 
 	padding-left:16px;
-	background : transparent url(images/feed.png) no-repeat left center;
+/*	background : transparent url(images/feed.png) no-repeat left center;*/
 	 }
 
 
