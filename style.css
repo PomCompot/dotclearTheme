@@ -33,6 +33,7 @@ html, body {
 }
 body {
   font-family: 'Scada', sans;
+  color: #222;
 }
  
 h1, h2, h3, h4, h5, h6 {
@@ -67,7 +68,7 @@ label { }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #222;
 }
 a:link { }
 a:visited { }
@@ -86,7 +87,6 @@ hr { }
 ------------------------------------------------------------- */
  
 #page {
-  padding: 18px;
   min-width: 320px;
   max-width: 1024px;
   margin: 0 auto;
@@ -120,14 +120,10 @@ hr { }
 ------------------------------------------------------------- */
 
 #wrapper { }
-#main { }
-#content {
-  overflow: auto;
-  text-align: center;
-  min-width: 320px;
-  max-width: 1024px;
-  margin: 0 auto;
+#main {
+  padding: 18px;
 }
+#content { }
 
 #content-info { }
 #content-info h2 { }
@@ -138,13 +134,26 @@ hr { }
 .pagination {
   clear: left;
 }
+.pagination .prev, .pagination .next {
+  display: block;
+  position: fixed;
+  top: 50%;
+}
+.pagination .prev {
+  left: 0;
+}
+.pagination .next {
+  right: 0;
+}
 #navlinks { }
 
 /* ------------------------------------------------------------
 	6. BILLETS
 ------------------------------------------------------------- */
 
-.post { }
+.post {
+  text-align: justify;
+}
 article.post-thumbnail {
   position: relative;
   display: inline-block;
@@ -223,7 +232,7 @@ article.post-thumbnail .post-content p {
 }
 .post-comment-count {
   color: #fff;
-  background-color: #000;
+  background-color: #222;
   border-radius: 12px 12px 12px 0;
   background-position: center;
   background-repeat: no-repeat;
@@ -314,9 +323,22 @@ article.post-thumbnail .post-content p {
 	8. SIDEBAR
 ------------------------------------------------------------- */
 
-#sidebar { }
-#blognav { }
-#blogextra { }
+#sidebar {
+  background: #222;
+  color: #fff;
+	padding: 18px;
+}
+#sidebar a {
+  color: #fff;
+}
+#blognav > div, #blogextra > div {
+  display: inline-block;
+  width: 320px;
+	vertical-align: top;
+}
+#blognav, #blogextra {
+  display: inline;
+}
 
 #sidebar h2 { }
 #sidebar h3 { }
@@ -461,7 +483,13 @@ feed.png a piocher dans le theme par defaut par ex.) */
 	plus precisement (cf l'exemple ci-dessus pour les tags)
 ------------------------------------------------------------- */
 
-.dc-home { }
+.dc-home #content {
+  overflow: auto;
+  text-align: center;
+  min-width: 320px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
 .dc-post { }
 .dc-categories { }
 .dc-category { }
